@@ -1,5 +1,8 @@
 # LSTM-TimeSeries-Predictor
-LSTM을 활용한 시계열 예측 문제
+LSTM을 활용한 시계열 예측 문제 해결 프로젝트입니다. 
+
+---
+### sin파 예측 문제
 
 ```py
 data = np.sin(time_steps) + 0.1 * np.random.normal(size=len(time_steps))
@@ -53,14 +56,7 @@ Epoch [3/20], Loss: 0.0158
 Epoch [4/20], Loss: 0.0138
 Epoch [5/20], Loss: 0.0136
 Epoch [6/20], Loss: 0.0134
-Epoch [7/20], Loss: 0.0132
-Epoch [8/20], Loss: 0.0125
-Epoch [9/20], Loss: 0.0129
-Epoch [10/20], Loss: 0.0131
-Epoch [11/20], Loss: 0.0143
-Epoch [12/20], Loss: 0.0136
-Epoch [13/20], Loss: 0.0139
-Epoch [14/20], Loss: 0.0131
+...
 Epoch [15/20], Loss: 0.0118
 Epoch [16/20], Loss: 0.0121
 Epoch [17/20], Loss: 0.0120
@@ -69,5 +65,47 @@ Epoch [19/20], Loss: 0.0117
 Epoch [20/20], Loss: 0.0119
 ```
 
-#### Sin 예측 파형
+#### Sin파 예측 결과
 ![Plot](./outputs/plot.png)
+
+---
+
+### Airline Passengers 데이터셋을 이용한 월별 국제 항공 승객 수 예측 문제
+```py
+url = 'https://raw.githubusercontent.com/jbrownlee/Datasets/master/airline-passengers.csv'
+df = pd.read_csv(url, usecols=[1])  # 승객 수 컬럼만 사용
+data = df.values.astype('float32')  # NumPy 배열로 변환
+```
+
+#### raw data 
+: 상위 8개 데이터만 출력하도록 시각화
+![Plot](./outputs/image.png)
+
+#### 하이퍼 파라미터
+```
+seq_length = 12
+batch_size = 16
+input_size = 1
+hidden_size = 50
+num_layers = 2
+output_size = 1
+learning_rate = 0.001
+num_epochs = 1000
+```
+
+#### 학습 로그
+```
+Epoch [100/1000], Loss: 0.0029
+Epoch [200/1000], Loss: 0.0023
+Epoch [300/1000], Loss: 0.0002
+Epoch [400/1000], Loss: 0.0029
+Epoch [500/1000], Loss: 0.0002
+Epoch [600/1000], Loss: 0.0015
+Epoch [700/1000], Loss: 0.0004
+Epoch [800/1000], Loss: 0.0012
+Epoch [900/1000], Loss: 0.0014
+Epoch [1000/1000], Loss: 0.0001
+```
+
+#### Airline Passengers 예측 결과
+![alt text](image2.png)
