@@ -11,9 +11,9 @@ for i in range(len(data) - seq_length):
         X.append(data[i:i+seq_length])
         y.append(data[i+seq_length]) 
 ```
-`X` (`input`) : `i+seq_length` 번째 값을 예측하기 위해 `i`부터 `i+seq_length-1`까지의 값을 사용
+`X` (`input`) : `i+seq_length` 번째 값을 예측하기 위한한 `i`부터 `i+seq_length-1`까지의 이전 데이터
 
-`y` (`labels`) : `i+seq_length` 모델 정답 값 
+`y` (`labels`) : `i+seq_length` 예측 정답값
 
 ```py
 class LSTMModel(nn.Module):
@@ -46,6 +46,7 @@ num_epochs = 20
 ```
 
 #### 학습 로그 
+```
 Epoch [1/20], Loss: 0.3337
 Epoch [2/20], Loss: 0.0376
 Epoch [3/20], Loss: 0.0158
@@ -66,6 +67,7 @@ Epoch [17/20], Loss: 0.0120
 Epoch [18/20], Loss: 0.0120
 Epoch [19/20], Loss: 0.0117
 Epoch [20/20], Loss: 0.0119
+```
 
 #### Sin 예측 파형
 ![Plot](./outputs/plot.png)
