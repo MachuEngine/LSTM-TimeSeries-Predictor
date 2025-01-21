@@ -108,4 +108,4 @@ Epoch [1000/1000], Loss: 0.0001
 ```
 
 #### Airline Passengers 예측 결과
-![alt text](image2.png)
+![alt text](./outputs/image2.png)
